@@ -114,72 +114,62 @@ int runOneRound(const char words[][MAXWORDLEN+1], int nWords, int wordnum) {
 
 int main()
 {
-//    char w[MAXWORDS][MAXWORDLEN+1];
-//    int n = getWords(w, MAXWORDS, WORDFILENAME);
-//    
-//    double avgTries = 0;
-//    int minTries = INT_MAX;
-//    int maxTries = 0;
-//    
-//    if (n < 1) {
-//        cout << "No words were loaded, so I can't play the game.";
-//        return -1;
-//    }
-//    
-//    int rounds;
-//    
-//    cout << "How many rounds do you want to play? ";
-//    
-//    cin >> rounds;
-//    cin.ignore();
-//        
-//    if (rounds <= 0) {
-//        cout << "The number of rounds must be positive.";
-//        return -1;
-//    }
-//    
-//    for (int i = 0; i < rounds; i++) {
-//        cout << endl << "Round " << i+1 << endl;
-//        
-//        int randomNum = randInt(0, n-1);
-//        cout << "The secret word is " << strlen(w[randomNum]) << " letters long." << endl;
-//        int tries = runOneRound(w, n, randomNum);
-//        
-//        if (tries == -1) {
-//            cout << "Failed to run one round." << endl;
-//            return -1;
-//        }
-//        
-//        
-//        minTries = (tries < minTries) ? tries : minTries;
-//        
-//        maxTries = (tries > maxTries) ? tries : maxTries;
-//        
-//        // update average: multiply by the number of previous rounds, add recent tries, and divide by total rounds
-//        avgTries *= (i);
-//        avgTries += tries;
-//        avgTries /= (i+1);
-//        
-//        
-//        if (tries == 1) {
-//            cout << "You got it in " << tries << " try." << endl;
-//        } else {
-//            cout << "You got it in " << tries << " tries." << endl;
-//        }
-//        
-//        cout << "Average: " << fixed << setprecision(2) << avgTries << ", minimum: " << minTries << ", maximum: " << maxTries << endl;
-//        
-//    }
-
-            const char* str = "C+ B+ B- A C A- B C- B+ D B";
-            int count = 0;
-            const char* p;
-            for (p = str; *p != '\0'  &&  count < 6; p++)
-                if (*p == ' ')
-                    count++;
-            for ( ; *p != '\0'  &&  *p != ' '; p++)
-                cout << *p;
-            cout << '\n';
+    char w[MAXWORDS][MAXWORDLEN+1];
+    int n = getWords(w, MAXWORDS, WORDFILENAME);
+    
+    double avgTries = 0;
+    int minTries = INT_MAX;
+    int maxTries = 0;
+    
+    if (n < 1) {
+        cout << "No words were loaded, so I can't play the game.";
+        return -1;
+    }
+    
+    int rounds;
+    
+    cout << "How many rounds do you want to play? ";
+    
+    cin >> rounds;
+    cin.ignore();
+        
+    if (rounds <= 0) {
+        cout << "The number of rounds must be positive.";
+        return -1;
+    }
+    
+    for (int i = 0; i < rounds; i++) {
+        cout << endl << "Round " << i+1 << endl;
+        
+        int randomNum = randInt(0, n-1);
+        cout << "The secret word is " << strlen(w[randomNum]) << " letters long." << endl;
+        int tries = runOneRound(w, n, randomNum);
+        
+        if (tries == -1) {
+            cout << "Failed to run one round." << endl;
+            return -1;
+        }
+        
+        
+        minTries = (tries < minTries) ? tries : minTries;
+        
+        maxTries = (tries > maxTries) ? tries : maxTries;
+        
+        // update average: multiply by the number of previous rounds, add recent tries, and divide by total rounds
+        avgTries *= (i);
+        avgTries += tries;
+        avgTries /= (i+1);
+        
+        
+        if (tries == 1) {
+            cout << "You got it in " << tries << " try." << endl;
+        } else {
+            cout << "You got it in " << tries << " tries." << endl;
+        }
+        
+        cout << "Average: " << fixed << setprecision(2) << avgTries << ", minimum: " << minTries << ", maximum: " << maxTries << endl;
+        
+    }
 
     
     

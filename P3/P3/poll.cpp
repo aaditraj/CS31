@@ -125,25 +125,25 @@ int computeVotes(string pollData, char party, int& voteCount) {
 int main()
 {
     
-//    assert(hasRightSyntax("R40TX")); // test a standard prediction
-//    assert(!hasRightSyntax("%40TX")); // test party is not a letter
-//    assert(!hasRightSyntax("R400TX")); // test more than three digits in votes
-//    assert(!hasRightSyntax("R40TT")); // test invalid state code
-//    assert(hasRightSyntax("R40TXD54CAr6Msd28nYL06UT")); // test multiple state predictions with both lower and uppercase letters
-//    
-//    int votes;
-//    votes = -999; // so we can detect whether computeVotes sets votes
-//
-//    // test for different parties in poll data
-//    assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'd', votes) == 0 && votes == 82);
-//    assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'r', votes) == 0 && votes == 46);
-//    assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'l', votes) == 0 && votes == 6);
-//
-//    assert(computeVotes("RR40TX", 'r', votes) == 1  &&  votes == 6); // test for invalid poll data
-//    assert(computeVotes("R40TXD0CAr6Msd28nYL06UT", 'd', votes) == 2  &&  votes == 6); // test for 0 votes for at least 1 state
-//    assert(computeVotes("D54CA", '@', votes) == 3 && votes == 6); // test for invalid party parameter
-//    assert(computeVotes("", 'R', votes) == 0 &&  votes == 0); // test for empty poll data
-//    
-//    cout << "All tests succeeded" << endl;
+    assert(hasRightSyntax("R40TX")); // test a standard prediction
+    assert(!hasRightSyntax("%40TX")); // test party is not a letter
+    assert(!hasRightSyntax("R400TX")); // test more than three digits in votes
+    assert(!hasRightSyntax("R40TT")); // test invalid state code
+    assert(hasRightSyntax("R40TXD54CAr6Msd28nYL06UT")); // test multiple state predictions with both lower and uppercase letters
+    
+    int votes;
+    votes = -999; // so we can detect whether computeVotes sets votes
+
+    // test for different parties in poll data
+    assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'd', votes) == 0 && votes == 82);
+    assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'r', votes) == 0 && votes == 46);
+    assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'l', votes) == 0 && votes == 6);
+
+    assert(computeVotes("RR40TX", 'r', votes) == 1  &&  votes == 6); // test for invalid poll data
+    assert(computeVotes("R40TXD0CAr6Msd28nYL06UT", 'd', votes) == 2  &&  votes == 6); // test for 0 votes for at least 1 state
+    assert(computeVotes("D54CA", '@', votes) == 3 && votes == 6); // test for invalid party parameter
+    assert(computeVotes("", 'R', votes) == 0 &&  votes == 0); // test for empty poll data
+    
+    cout << "All tests succeeded" << endl;
     
 }

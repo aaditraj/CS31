@@ -182,72 +182,38 @@ int separate(string a[], int n, string separator) {
 
 int main(int argc, const char * argv[]) {
     
-//    string h[7] = { "melania", "kamala", "donald", "tim", "", "doug", "jd" };
-//    assert(lookup(h, 7, "doug") == 5);
-//    assert(lookup(h, 2, "donald") == -1);
-//    assert(lookup(h, 0, "doug") == -1);
-//    assert(lookup(h, -1, "donald") == -1);
-//    assert(appendToAll(h, 7, "?") == 7 && h[0] == "melania?" && h[3] == "tim?");
-//    assert(appendToAll(h, -1, "?") == -1);
-//    assert(positionOfMax(h, 7) == 3);
-//    assert(positionOfMax(h, 3) == 0);
-//    assert(positionOfMax(h, -1) == -1);
-//    assert(rotateLeft(h, 7, 0) == 0 && h[1] == "donald?" && h[3] == "?");
-//    
-//    
-//    for (int i = 0; i < 7; i++) {
-//        cout << h[i] << ", ";
-//    }
-//    
-//    
-//    assert(rotateLeft(h, 7, 8) == -1);
-//    assert(rotateLeft(h, 7, -1) == -1);
-//    assert(countRuns(h, 7) == 7);
-//    assert(countRuns(h, 2) == 2);
-//    assert(countRuns(h, -1) == -1);
-//    assert(countRuns(h, 0) == 0);
-//    
-//    for (int i = 0; i < 7; i++) {
-//        cout << h[i] << ", ";
-//    }
-//    
-//    assert(flip(h, 7) == 7 && h[0] == "" && h[2] == "jd?");
-//
-//    cout << "All tests succeeded" << endl;
-    
-    char greeting[6] = {'h', 'e', 'l', 'l', 'o', NULL};
-    
-    char *p = greeting;
-    
-    p+=3;
-    
-    if (p != nullptr) {
-        cout << *p << " *p " << endl;
-        
-        
-        cout << p << " p " << endl;
-        
-        cerr << &p << " &p " << endl;
-    }
-    
-    cerr << endl << endl;
-    
-    int num[6] = {1, 7, 3, 4, 5, 2};
-    
-    int *ptr = num;
-    
-    ptr++;
+    string h[7] = { "melania", "kamala", "donald", "tim", "", "doug", "jd" };
+    assert(lookup(h, 7, "doug") == 5);
+    assert(lookup(h, 2, "donald") == -1);
+    assert(lookup(h, 0, "doug") == -1);
+    assert(lookup(h, -1, "donald") == -1);
+    assert(appendToAll(h, 7, "?") == 7 && h[0] == "melania?" && h[3] == "tim?");
+    assert(appendToAll(h, -1, "?") == -1);
+    assert(positionOfMax(h, 7) == 3);
+    assert(positionOfMax(h, 3) == 0);
+    assert(positionOfMax(h, -1) == -1);
+    assert(rotateLeft(h, 7, 0) == 0 && h[1] == "donald?" && h[3] == "?");
     
     
-    if (ptr != nullptr) {
-        cout << *ptr << " *ptr " << endl;
-        
-        cout << ptr << " ptr " << endl;
-        
-        cerr << &ptr <<  " &ptr " <<endl;
-        
+    for (int i = 0; i < 7; i++) {
+        cout << h[i] << ", ";
     }
     
     
-//    cout << a[3][0] << endl;
+    assert(rotateLeft(h, 7, 8) == -1);
+    assert(rotateLeft(h, 7, -1) == -1);
+    assert(countRuns(h, 7) == 7);
+    assert(countRuns(h, 2) == 2);
+    assert(countRuns(h, -1) == -1);
+    assert(countRuns(h, 0) == 0);
+    
+    for (int i = 0; i < 7; i++) {
+        cout << h[i] << ", ";
+    }
+    
+    assert(flip(h, 7) == 7 && h[0] == "" && h[2] == "jd?");
+
+    cout << "All tests succeeded" << endl;
+    
+    
 }
