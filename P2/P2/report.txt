@@ -1,0 +1,19 @@
+Notable Obstacles: 
+	•	Remembering to place the cin.ignore when transitioning from integer to string input so that string input is not skipped.
+	•	Figuring out how to get the rental charge printed out with exactly 2 digits after the decimal place.
+
+Test cases:
+	•	Starting odometer reading is negative (-100, 100, 1, Bob, y, 1)
+	•	Ending odometer reading is less than starting odometer reading (100, 0, 1, Bob, y, 1)
+	•	Rental days is not positive (0, 100, -1, Bob, y, 1)
+	•	No customer name inputted (0, 100, 1, “”, y, 1)
+	•	Neither ‘y’ nor ’n’ inputted for luxury car input (0, 100, 1, Bob, yes, 1)
+	•	Starting month is not in the range 1 to 12 (0, 100, 1, Bob, y, 13)
+	•	Testing difference in rental charge for luxury and non-luxury cars:
+	⁃	Customer has a luxury car (0, 100, 1, Bob, y, 1)
+	⁃	Customer does not have luxury car (0, 100, 1, Bob n, 1)
+	•	Testing rental charge output for varying miles driven:
+	⁃		miles driven is less than 100 (0, 50, 1, Bob, n, 1) 
+	⁃		miles driven is greater than 100 and less than 600, rental starts in winter month (0, 150, 1, Bob, n, 12)
+	⁃		miles driven is greater than 100 and less than 600, rental does not start in winter month (0, 150, 1, Bob, n, 11)
+	⁃		miles driven is greater than 600 (0, 650, 1, Bob, n, 1)

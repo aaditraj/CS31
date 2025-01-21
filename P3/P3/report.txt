@@ -1,0 +1,76 @@
+1) 
+
+•converting electoral votes from string to integer (computeVotes)
+•ensuring there are no half-predictions at the end (hasRightSyntax)
+
+2) 
+
+hasRightSyntax:
+
+repeatedly:
+	if new prediction:
+		return false if next char not a valid party
+	else:
+		if party char read:
+			check second char is a digit
+		else if party char and at least 1 digit read:
+			if next char is a digit
+				return false if more than 2 digits read in prediction
+			else if char is a letter
+				if this and next char in pollData form valid state code:
+					empty prediction string
+				else return false
+			else return false
+	
+return true if prediction string is empty (whole number of predictions read)
+
+
+
+
+computeVotes:
+
+if pollData invalid return 1
+
+if party parameter invalid return 3
+
+repeatedly:
+	if start of new prediction:
+		check whether first character is a party match
+	else
+		track votes if digit
+		if reached a letter:
+			parse tracked vote digits into an integer
+			return 2 if parsed votes is 0
+			add votes to a variable if correct party
+			skip to next prediction in pollData
+
+update voteCount parameter and return 0
+
+
+
+3) 
+
+
+hasRightSyntax tests:
+
+assert(hasRightSyntax(“R40TX”)); // test a standard prediction
+assert(!hasRightSyntax(“%40TX”)); // test party is not a letter
+assert(!hasRightSyntax(“R400TX”)); // test more than three digits in votes
+assert(!hasRightSyntax(“R40TT”)); // test invalid state code
+assert(hasRightSyntax("R40TXD54CAr6Msd28nYL06UT")); // test multiple state predictions with both lower and uppercase letters
+
+
+computeVotes tests:
+
+int votes;
+votes = -999;    // so we can detect whether computeVotes sets votes
+
+// test for different parties in poll data
+assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'd', votes) == 0  &&  votes == 82);
+assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'r', votes) == 0  &&  votes == 46);
+assert(computeVotes("R40TXD54CAr6Msd28nYL06UT", 'l', votes) == 0  &&  votes == 6);
+
+assert(computeVotes("RR40TX", ‘r’, votes) == 1  &&  votes == 6); // test for invalid poll data
+assert(computeVotes("R40TXD0CAr6Msd28nYL06UT", 'd', votes) == 2  &&  votes == 6); // test for 0 votes for at least 1 state
+assert(computeVotes("D54CA", '@', votes) == 3 && votes == 6); // test for invalid party parameter
+assert(computeVotes("", 'R', votes) == 0 &&  votes == 0); // test for empty poll data

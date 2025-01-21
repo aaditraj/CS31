@@ -1,0 +1,44 @@
+1)
+Output:
+endlendl
+grendel
+
+2)
+The program prints out n rows of hashtags, where n is an integer specified by the user, where the first row prints 1 hashtag and each consecutive row prints an additional hashtag until the nth row prints n hashtags.
+
+3)
+int side;
+
+cout << "Enter a number: ";
+cin >> side;
+
+for (int i = 0; i < side; i++)
+{
+    int j = i;
+    while (j >= 0) {
+        cout << "#";
+        j--;
+    }
+    cout << "\n";
+}
+    
+    
+4)
+switch (codeSection) {
+    case 281:
+        cout << "bigamy";
+        break;
+    case 321:
+    case 322:
+        cout << "selling illegal lottery tickets";
+        break;
+    case 383:
+        cout << "selling rancid butter";
+        break;
+    case 598:
+        cout << "injuring a bird in a public cemetery";
+        break;
+    default:
+        cout << "some other crime";
+        
+}

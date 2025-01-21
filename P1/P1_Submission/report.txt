@@ -1,0 +1,9 @@
+Step 5 Input: 100 registered voters, 200 voted for Trarris and 300 voted for Hump
+	•	resulted in nonsensical output 200% voted for Trarris and 300% voted for Hump
+logic_error.cpp error: Input for number of Trarris voters gets stored into forHump and input for number of Hump voters gets stored into forTrarris
+compile_error.cpp errors: 
+	•	Input for number of registered voters gets stored into undeclared variable numbersSurveyed instead of numberSurveyed
+	⁃	Compiler error: “Use of undeclared identifier ‘numbersSurveyed’; did you mean ‘numberSurveyed’?”
+	•	changed cout << endl to cout < endl
+	⁃	Compiler Error: “Reference to overloaded function could not be resolved; did you mean to call it?”
+

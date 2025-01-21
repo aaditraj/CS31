@@ -1,0 +1,38 @@
+﻿Notable Obstacles:
+* countRuns: Remembering to add increment the number of runs after the for loop
+* Subsequence: how to track whether a subsequence is completed and what to do to the iterator variables when a subsequence is ‘broken’ (i.e. the terms are matching until the loop reaches a difference between the two)
+* Separate: how to track when all the terms greater than the separator have been moved to the right (ie when to break out of the loop)
+
+
+
+
+
+
+Test Data:
+
+
+
+
+string h[7] = { "melania", "kamala", "donald", "tim", "", "doug", "jd" };
+    assert(lookup(h, 7, "doug") == 5);
+    assert(lookup(h, 2, "donald") == -1);
+    assert(lookup(h, 0, "doug") == -1);
+    assert(lookup(h, -1, "donald") == -1);
+    assert(appendToAll(h, 7, "?") == 7 && h[0] == "melania?" && h[3] == "tim?");
+    assert(appendToAll(h, -1, "?") == -1);
+    assert(positionOfMax(h, 7) == 3);
+    assert(positionOfMax(h, 3) == 0);
+    assert(positionOfMax(h, -1) == -1);
+    assert(rotateLeft(h, 7, 1) == 1 && h[1] == "donald?" && h[3] == "?");
+    assert(rotateLeft(h, 7, 8) == -1);
+    assert(rotateLeft(h, 7, -1) == -1);
+    assert(countRuns(h, 7) == 7);
+    assert(countRuns(h, 2) == 2);
+    assert(countRuns(h, -1) == -1);
+    assert(countRuns(h, 0) == 0);
+            string h[7] = { "melania", "kamala", "donald", "tim", "", "doug", "jd" };
+            string f[3] = { "jd", "donald", "gwen" };
+            assert(lookupAny(h, 7, f, 3) == 2);
+            assert(flip(f, 3) == 3 && f[0] == "gwen" && f[2] == "jd");
+        
+            assert(separate(h, 7, "jd") == 3);

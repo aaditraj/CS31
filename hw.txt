@@ -1,0 +1,355 @@
+﻿1. 
+
+
+
+1.   
+
+
+int main()
+    {
+        int arr[3] = { 5, 10, 15 };
+        int* ptr = arr;
+
+
+        *ptr = 30;          // set arr[0] to 30
+        *(ptr + 1) = 20;      // set arr[1] to 20
+        *(ptr + 2) = 10;   // set arr[2] to 10
+        
+        while (ptr < arr + 3)
+        {
+            cout << *ptr << endl;    // print values
+            ptr++;
+        }
+    }
+
+
+
+
+
+
+2.  
+
+
+void findMax(int arr[], int n, int* &pToMax)
+    {
+        if (n <= 0) 
+            return;      // no items, no maximum!
+    
+        pToMax = arr;
+
+
+        for (int i = 1; i < n; i++)
+        {
+            if (arr[i] > *pToMax)
+                 pToMax = arr + i;
+        }
+    }       
+
+
+    int main()
+    {
+        int nums[4] = { 5, 3, 15, 6 };
+        int* ptr = &nums[0];
+
+
+        findMax(nums, 4, ptr);
+        cout << "The maximum is at address " << ptr << endl;
+        cout << "It's at position " << ptr - nums << endl;
+        cout << "Its value is " << *ptr << endl;
+    }
+
+
+
+
+
+
+3.   
+
+
+void computeCube(int n, int* ncubed)
+    {
+        *ncubed = n * n * n;
+    }
+
+
+    int main()
+    {
+        int num = 0;
+        int* ptr = &num;
+        computeCube(5, ptr);
+        cout << "Five cubed is " << *ptr << endl;
+    }
+
+
+
+
+4.  
+
+
+    bool strequal(const char str1[], const char str2[])
+    {
+        while (*str1 != 0  &&  *str2 != 0)  // MUST DEREFERENCE POINTER TO ACCESS CHAR
+        {
+            if (*str1 != *str2)  // DEREFERENCE POINTER TO COMPARE CHARS
+                return false;
+            str1++;            // advance to the next character
+            str2++;
+        }
+        return *str1 == *str2;   // DEREFERENCE POINTERS TO COMPARE
+    }
+
+
+    int main()
+    {
+        char a[15] = "Alex H.";
+        char b[15] = "Alex T.";
+
+
+        if (strequal(a,b))
+            cout << "They're the same person!\n";
+    }
+
+
+
+
+
+
+
+
+
+
+e)
+
+
+
+
+#include <iostream>
+    using namespace std;
+
+
+    int* nochange(int* p)
+    {
+        return p;
+    }
+
+
+    int* getPtrToArray(int& m)
+    {
+        int anArray[100];
+        for (int j = 0; j < 100; j++)
+            anArray[j] = 100-j;
+        m = 100;
+        return nochange(anArray);
+    }
+
+
+    void f()
+    {
+        int junk[100];
+        for (int k = 0; k < 100; k++)
+            junk[k] = 123400000 + k;
+        junk[50]++;
+    }
+
+
+    int main()
+    {
+        int n;
+        int* ptr = getPtrToArray(n);
+        f();
+        for (int i = 0; i < 3; i++)
+            cout << ptr[i] << ' ';
+        for (int i = n-3; i < n; i++)
+            cout << ptr[i] << ' ';
+        cout << endl;
+    }
+
+
+
+
+It is attempting to print out the first three elements and last three elements of the array, except only the pointer to that array exists. The actual memory space used by the array is free to get replaced by elements in the junk array.
+
+
+
+
+2)
+
+
+
+
+1. double* cat;
+2. double mouse[5];
+3. cat = &(mouse[4]);
+4. *cat = 25;
+5. *(mouse + 3) = 42;
+6. cat -= 3;
+7. cat[1] = 17
+8. cat[0] = 54;
+9. bool d = (cat == mouse);
+10. bool b = (*cat == *(cat + 1))
+
+
+
+
+
+
+3)  
+
+
+
+
+1.  
+
+
+double mean(const double* scores, int numScores)
+    {        
+        double i = 0;
+        double tot = 0;
+        while (i < numScores)
+        {
+            tot += *(scores + i);
+            i++;
+        }
+        return tot/numScores;
+    }
+
+
+2.    
+   // This function searches through str for the character chr.
+    // If the chr is found, it returns a pointer into str where
+    // the character was first found, otherwise nullptr (not found).
+
+
+    const char* findTheChar(const char* str, char chr)
+    {
+        for (int k = 0; *str != 0; k++)
+            if (*str == chr)
+                return str;
+        str += k;
+
+
+        return nullptr;
+    }
+
+
+
+
+c)   
+
+
+ const char* findTheChar(const char* str, char chr)
+    {
+        while (*str != 0) {
+        if (*str == chr) return str;
+        str++;
+         }
+        return nullptr;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4)
+
+
+#include <iostream>
+    using namespace std;
+
+
+    int* maxwell(int* a, int* b)
+    {
+        if (*a > *b)
+            return a;
+        else
+            return b;
+    }
+
+
+    void swap1(int* a, int* b)
+    {
+        int* temp = a;
+        a = b;
+        b = temp;
+    }
+
+
+    void swap2(int* a, int* b)
+    {
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+    }
+
+
+    int main()
+    {
+        int array[6] = { 5, 3, 4, 17, 22, 19 };
+
+
+        int* ptr = maxwell(array, &array[2]);
+        *ptr = -1; // arr[0] = -1
+        ptr += 2; 
+        ptr[1] = 9; // arr[3] = 9
+        *(array+1) = 79; // arr[1] = 79
+
+
+        cout << &array[5] - ptr << endl; // 3, since ptr is at the second position
+
+
+        swap1(&array[0], &array[1]); // doesn’t change the actual values
+        swap2(array, &array[2]); // swaps the first and third values in the array
+
+
+        for (int i = 0; i < 6; i++)
+            cout << array[i] << endl;
+    }
+
+
+
+
+Line 1: 3 (ptr is at position 2 so there is 3 memory spaces between array[5] and ptr)
+Line 2: 4 // swap2 swaps the first and third values in the array
+Line 3: 79
+Line 4: -1 // swap2 swaps the first and third values in the array
+Line 5: 9
+Line 6: 22
+Line 7: 19
+
+
+
+
+
+
+5) 
+
+
+void removeS(char* ptr) {
+        for (int i = 0; *(ptr+i) != 0; i++) {
+                if (*(ptr+i) == ‘s’ || *(ptr+i) == ‘S’) {
+                        for (int j = 0; *(ptr + i + j) != 0; j++) {
+                                *(ptr + i + j) = *(ptr + i + j + 1);
+                        }
+                        i -= 1;
+                }
+        }
+}
+
+
+int main()
+    {
+        char msg[50] = "She'll blossom like a massless princess.";
+        removeS(msg);
+        cout << msg;  // prints   he'll bloom like a male prince.
+    }

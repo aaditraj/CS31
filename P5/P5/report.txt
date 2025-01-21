@@ -1,0 +1,62 @@
+Notable Obstacles:
+* Calculating the average tries after each round
+* Preventing stars and planets from being double counted
+
+
+MAIN ROUTINE:
+
+
+load words from file into array of c strings
+
+
+if number of words in the array not positive, end program
+
+
+Prompt user for number of rounds
+
+
+if number of rounds is not positive, end program
+
+
+for each round:
+        generate random index in word list
+        run one round and retrieve number of tries
+        end program if tries is -1
+        Update minimum and maximum tries
+        update average tries
+        Output tries for current round
+        Output average, minimum, and maximum
+
+
+
+RUN ONE ROUND:
+
+if invalid arguments, terminate function
+
+
+initialize the secret word
+make a copy of the secret word to manipulate every try
+
+
+while number of stars not equal to length of secret word:
+        while invalid trial word:
+                read the trial word from user
+		if trial word is 4 to 6 lowercase letters
+                	check if trial word is in wordlist
+        for each letter in trial word:
+                if it matches corresponding letter in secret word copy:
+                        Replace letter in copy with non-letter and increment stars
+        
+        for each letter in trial word:
+                if matching letter anywhere in secret word copy:
+                        Replace letter in copy with non-letter and increment planets 
+                        Go on to next letter in trial word
+        
+        Reset secret word copy
+
+
+        Output number of stars and planets
+
+
+        Increment tries
+return tries
